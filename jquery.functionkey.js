@@ -4,7 +4,7 @@
  * Prevent or replace keydown event of function key (F1-F12).
  * And bind click event to button of class "f1"-"f12".
  *
- * Created by froop http://github.com/froop
+ * Created by froop http://github.com/froop/jquery-function-key
  * The MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 /*global jQuery */
