@@ -17,12 +17,12 @@
 			/**
 			 * Event handler of keydown or click F1-F12
 			 *     callback function (keyCode)
-			 *     keyCode: see FunctionKeys.CODE
+			 *     keyCode: see $.functionKey.CODE
 			 */
 			handler : function (keyCode) {}
 		};
 		var setting = $.extend(defaults, options);
-		var CODE = FunctionKeys.CODE;
+		var CODE = $.functionKey.CODE;
 
 		$self.on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
@@ -45,11 +45,11 @@
 		function setupButtons() {
 			function setupButtonEvent(key) {
 				$self.on("click", "." + key, function () {
-					setting.handler(FunctionKeys.CODE[key]);
+					setting.handler(CODE[key]);
 				});
 			}
 	
-			$.each(FunctionKeys.CODE, function (key) {
+			$.each(CODE, function (key) {
 				setupButtonEvent(key);
 			});
 		}
@@ -59,7 +59,6 @@
 	};
 })(jQuery);
 
-//TODO
-var FunctionKeys = {};
-FunctionKeys.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
+$.functionKey = {};
+$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
 	f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
