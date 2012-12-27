@@ -11,6 +11,10 @@
 (function ($) {
 	"use strict";
 
+	$.functionKey = {};
+	$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
+		f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
+
 	$.fn.functionKey = function (options) {
 		var $self = this;
 		var defaults = {
@@ -57,9 +61,4 @@
 
 		return this;
 	};
-
-	$.functionKey = {};
-
-	$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
-		f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
 })(jQuery);
