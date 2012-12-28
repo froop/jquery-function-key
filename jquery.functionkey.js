@@ -1,10 +1,10 @@
 /**
  * jquery.functionkey.js - jQuery plugin.
  *
- * Prevent or replace keydown event of function key (F1-F12).
- * And bind click event to button of class "f1"-"f12".
+ * Prevent and handle "keydown" events of function keys (F1-F12).
+ * And bind a "click" event handler to elements of "f1"-"f12" classes.
  *
- * Created by froop http://github.com/froop/jquery-function-key
+ * Copyright (c) 2012 froop http://github.com/froop/jquery-function-key
  * The MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 /*global jQuery */
@@ -15,14 +15,19 @@
 	$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
 		f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
 
+	/**
+	 * Plugin method.
+	 *
+	 * [option]
+	 * handler: function (keyCode)
+	 *     An event handler of "keydown" and "click".
+	 *     keyCode: A key code of function key. see $.functionKey.CODE
+	 *
+	 * @param options An object of custom options
+	 */
 	$.fn.functionKey = function (options) {
 		var $elements = this;
 		var defaults = {
-			/**
-			 * Event handler of keydown or click F1-F12
-			 *     callback function (keyCode)
-			 *     keyCode: see $.functionKey.CODE
-			 */
 			handler : function () {}
 		};
 		var setting = $.extend(defaults, options);
