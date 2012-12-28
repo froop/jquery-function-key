@@ -16,7 +16,7 @@
 		f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
 
 	$.fn.functionKey = function (options) {
-		var $self = this;
+		var $elements = this;
 		var defaults = {
 			/**
 			 * Event handler of keydown or click F1-F12
@@ -28,7 +28,7 @@
 		var setting = $.extend(defaults, options);
 		var CODE = $.functionKey.CODE;
 
-		$self.on("keydown", function (event) {
+		$elements.on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
 				if ($.browser.msie) {
 					event.originalEvent.keyCode = 0;
@@ -41,14 +41,14 @@
 		});
 	
 		if ($.browser.msie) {
-			$self.on("help", function () {
+			$elements.on("help", function () {
 				return false;
 			});
 		}
 	
 		function setupButtons() {
 			function setupButtonEvent(key) {
-				$self.on("click", "." + key, function () {
+				$elements.on("click", "." + key, function () {
 					setting.handler(CODE[key]);
 				});
 			}
