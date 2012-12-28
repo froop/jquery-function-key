@@ -39,20 +39,20 @@
 				return false;
 			}
 		});
-	
+
 		if ($.browser.msie) {
 			$elements.on("help", function () {
 				return false;
 			});
 		}
-	
+
 		function setupButtons() {
 			function setupButtonEvent(key) {
 				$elements.on("click", "." + key, function () {
 					setting.handler(CODE[key]);
 				});
 			}
-	
+
 			$.each(CODE, function (key) {
 				setupButtonEvent(key);
 			});
