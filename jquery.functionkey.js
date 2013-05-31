@@ -33,7 +33,7 @@
 		var setting = $.extend(defaults, options);
 		var CODE = $.functionKey.CODE;
 
-		$elements.on("keydown", function (event) {
+		$(document).on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
 				if ($.browser.msie) {
 					event.originalEvent.keyCode = 0;
@@ -46,7 +46,7 @@
 		});
 
 		if ($.browser.msie) {
-			$elements.on("help", function () {
+			$(document).on("help", function () {
 				return false;
 			});
 		}
