@@ -15,6 +15,16 @@
 	$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
 			f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
 
+	// http://ajaxian.com/archives/attack-of-the-ie-conditional-comment
+	var ie = (function(){
+		var v = 3, div = document.createElement('div');
+		while (
+			div.innerHTML = '<!--[if gt IE '+(++v)+']><i></i><![endif]-->',
+			div.getElementsByTagName('i')[0]
+		);
+		return v> 4 ? v : undefined;
+	}());
+
 	/**
 	 * Plugin method.
 	 *
@@ -36,17 +46,18 @@
 
 		$document.on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
-				if ($.browser.msie) {
-					event.originalEvent.keyCode = 0;
-				} else {
+				if (event.preventDefault) {
 					event.preventDefault();
+				}
+				if (ie <= 8) {
+					event.originalEvent.keyCode = 0;
 				}
 				setting.handler(event.keyCode);
 				return false;
 			}
 		});
 
-		if ($.browser.msie) {
+		if (ie) {
 			$document.on("help", function () {
 				return false;
 			});
