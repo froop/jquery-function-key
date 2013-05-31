@@ -13,7 +13,7 @@
 
 	$.functionKey = {};
 	$.functionKey.CODE = {f1:112, f2:113, f3:114, f4:115, f5:116, f6:117,
-		f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
+			f7:118, f8:119, f9:120, f10:121, f11:122, f12:123};
 
 	/**
 	 * Plugin method.
@@ -32,8 +32,9 @@
 		};
 		var setting = $.extend(defaults, options);
 		var CODE = $.functionKey.CODE;
+		var $body = $elements.closest("body");
 
-		$(document).on("keydown", function (event) {
+		$body.on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
 				if ($.browser.msie) {
 					event.originalEvent.keyCode = 0;
@@ -46,7 +47,7 @@
 		});
 
 		if ($.browser.msie) {
-			$(document).on("help", function () {
+			$body.on("help", function () {
 				return false;
 			});
 		}
