@@ -32,9 +32,9 @@
 		};
 		var setting = $.extend(defaults, options);
 		var CODE = $.functionKey.CODE;
-		var $body = $elements.closest("body");
+		var $document = $($elements.get(0).ownerDocument || $elements);
 
-		$body.on("keydown", function (event) {
+		$document.on("keydown", function (event) {
 			if (event.keyCode >= CODE.f1 && event.keyCode <= CODE.f12) {
 				if ($.browser.msie) {
 					event.originalEvent.keyCode = 0;
@@ -47,7 +47,7 @@
 		});
 
 		if ($.browser.msie) {
-			$body.on("help", function () {
+			$document.on("help", function () {
 				return false;
 			});
 		}
