@@ -4,7 +4,7 @@
  * Prevent and handle "keydown" events of function keys (F1-F12).
  * And bind a "click" event handler to elements of "f1"-"f12" classes.
  *
- * Copyright (c) 2012 froop http://github.com/froop/jquery-function-key
+ * Copyright (c) 2012, 2013 froop http://github.com/froop/jquery-function-key
  * The MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 /*global jQuery */
